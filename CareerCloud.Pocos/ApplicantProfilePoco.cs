@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 namespace CareerCloud.Pocos
 {
     [Table("Applicant_Profiles", Schema = "dbo")]
-    class ApplicantProfilePoco
+    class ApplicantProfilePoco : IPoco
     {
         [Key]
-        public Guid id { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         [Index(IsUnique = true)]

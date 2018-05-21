@@ -10,7 +10,7 @@ namespace CareerCloud.Pocos
 {
     [Table("Company_Jobs", Schema = "dbo")]
     
-    class CompanyJobPoco
+    class CompanyJobPoco : IPoco
     {
         [Key]
         public Guid Id { get; set; }

@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 namespace CareerCloud.Pocos
 {
     [Table("Applicant_Educations", Schema = "dbo")]
-    public class ApplicantEducationPoco
+    public class ApplicantEducationPoco : IPoco
     {
         [Key]
         public Guid Id { get; set; }
 
         [Required]//since foreign keys may be null
-        [Index(IsUnique =true)]
+        [Index(IsUnique = true)]
         [ForeignKey("Applicant_Profiles_Id")]//don't know much
         public Guid Applicant { get; set; }
 
