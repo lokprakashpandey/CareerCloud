@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CareerCloud.Pocos
 {
-    [Table("Applicant_Skills")]
+    [Table("Applicant_Skills", Schema = "dbo")]
     class ApplicantSkillPoco
     {
         [Key]
@@ -21,11 +21,12 @@ namespace CareerCloud.Pocos
 
         [Required]
         [StringLength(100)]
+        [Column(TypeName = "nvarchar")]
         public String Skill { get; set; }
 
         [Required]
         [StringLength(10, MinimumLength = 10)]
-        [Column("Skill_Level")]
+        [Column("Skill_Level", TypeName = "char")]
         public Char[] SkillLevel { get; set; }
 
         [Required]
@@ -45,7 +46,7 @@ namespace CareerCloud.Pocos
         public Int32 EndYear { get; set; }
 
         [Required]
-        [Column("Time_Stamp")]
+        [Column("Time_Stamp", TypeName = "timestamp")]
         public Byte[] TimeStamp { get; set; }
     }
 }

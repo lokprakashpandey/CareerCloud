@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CareerCloud.Pocos
 {
-    [Table("System_Language_Codes")]
+    [Table("System_Language_Codes", Schema = "dbo")]
     class SystemLanguageCodePoco
     {
     }

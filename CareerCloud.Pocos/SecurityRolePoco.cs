@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CareerCloud.Pocos
 {
-    [Table("Security_Roles")]
+    [Table("Security_Roles", Schema = "dbo")]
     class SecurityRolePoco
     {
     }

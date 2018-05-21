@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CareerCloud.Pocos
 {
-    [Table("Applicant_Profiles")]
+    [Table("Applicant_Profiles", Schema = "dbo")]
     class ApplicantProfilePoco
     {
         [Key]
@@ -36,15 +36,15 @@ namespace CareerCloud.Pocos
         [ForeignKey("System_Country_Codes_Code")]
         public String CountryCode { get; set; }
 
-        [Column("State_Province_Code")]
+        [Column("State_Province_Code", TypeName = "char")]
         [StringLength(10, MinimumLength = 10)]
         public String StateProvinceCode { get; set; }
 
-        [Column("Street_Address")]
+        [Column("Street_Address", TypeName = "nvarchar")]
         [StringLength(100)]
         public String StreetAddress { get; set; }
 
-        [Column("City_Town")]
+        [Column("City_Town", TypeName = "nvarchar")]
         [StringLength(100)]
         public String CityTown { get; set; }
 
@@ -53,7 +53,7 @@ namespace CareerCloud.Pocos
         public String ZipPostalCode { get; set; }
 
         [Required]
-        [Column("Time_Stamp")]
+        [Column("Time_Stamp", TypeName = "timestamp")]
         public Byte[] TimeStamp { get; set; }
 
     }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CareerCloud.Pocos
 {
-    [Table("Applicant_Educations")]
+    [Table("Applicant_Educations", Schema = "dbo")]
     public class ApplicantEducationPoco
     {
         [Key]
@@ -21,23 +21,24 @@ namespace CareerCloud.Pocos
 
         [Required]
         [StringLength(100)]
+        [Column(TypeName = "nvarchar")]
         public String Major { get; set; }
 
         [StringLength(100)]
-        [Column("Certificate_Diploma")]
+        [Column("Certificate_Diploma", TypeName = "nvarchar")]
         public String CertificateDiploma { get; set; }
 
-        [Column("Start_Date")]
+        [Column("Start_Date", TypeName = "date")]
         public DateTime StartDate { get; set; }
 
-        [Column("Completion_Date")]
+        [Column("Completion_Date", TypeName = "date")]
         public DateTime CompletionDate { get; set; }
         
-        [Column("Completion_Percent")]
+        [Column("Completion_Percent", TypeName = "tinyint")]
         public Byte CompletionPercent { get; set; }
 
         [Required]
-        [Column("Time_Stamp")]
+        [Column("Time_Stamp", TypeName = "timestamp")]
         public Byte[] TimeStamp { get; set; }
 
     }

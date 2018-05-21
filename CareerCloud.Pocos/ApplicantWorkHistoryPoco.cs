@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CareerCloud.Pocos
 {
-    [Table("Applicant_Work_History")]
+    [Table("Applicant_Work_History", Schema = "dbo")]
     class ApplicantWorkHistoryPoco
     {
         [Key]
@@ -21,7 +21,7 @@ namespace CareerCloud.Pocos
 
         [Required]
         [StringLength(150)]
-        [Column("Company_Name")]
+        [Column("Company_Name", TypeName = "nvarchar")]
         public String CompanyName { get; set; }
 
         [Required]
@@ -32,16 +32,17 @@ namespace CareerCloud.Pocos
 
         [Required]
         [StringLength(50)]
+        [Column(TypeName = "nvarchar")]
         public String Location;
 
         [Required]
         [StringLength(50)]
-        [Column("Job_Title")]
+        [Column("Job_Title", TypeName = "nvarchar")]
         public String JobTitle;
 
         [Required]
         [StringLength(500)]
-        [Column("Job_Description")]
+        [Column("Job_Description", TypeName = "nvarchar")]
         public String JobDescription;
 
         [Required]
@@ -61,7 +62,7 @@ namespace CareerCloud.Pocos
         public Int32 EndYear;
 
         [Required]
-        [Column("Time_Stamp")]
+        [Column("Time_Stamp", TypeName = "timestamp")]
         public Byte[] TimeStamp;
 
     }

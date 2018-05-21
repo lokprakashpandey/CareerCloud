@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CareerCloud.Pocos
 {
-    [Table("Applicant_Job_Applications")]
+    [Table("Applicant_Job_Applications", Schema = "dbo")]
     public class ApplicantJobApplicationPoco
     {
         [Key]
@@ -25,11 +25,11 @@ namespace CareerCloud.Pocos
         public Guid Job { get; set; }
 
         [Required]
-        [Column("Application_Date")]
+        [Column("Application_Date", TypeName = "datetime2")]
         public DateTime ApplicationDate { get; set; }
 
         [Required]
-        [Column("Time_Stamp")]
+        [Column("Time_Stamp", TypeName = "timestamp")]
         public Byte[] TimeStamp { get; set; }
 
     }
