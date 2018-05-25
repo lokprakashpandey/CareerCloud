@@ -22,23 +22,23 @@ namespace CareerCloud.Pocos
         [Required]
         [StringLength(10, MinimumLength = 10)]
         [Column("Country_Code", TypeName = "char")]
-        public Char[] CountryCode { get; set; }
+        public String CountryCode { get; set; }
 
         [StringLength(10, MinimumLength = 10)]
         [Column("State_Province_Code", TypeName = "char")]
-        public Char[] StateProvinceCode { get; set; }
+        public String Province { get; set; }
 
         [StringLength(100)]
         [Column("Street_Address", TypeName = "nvarchar")]
-        public String StreetAddress { get; set; }
+        public String Street { get; set; }
 
         [StringLength(100)]
         [Column("City_Town", TypeName = "nvarchar")]
-        public String CityTown { get; set; }
+        public String City { get; set; }
 
         [StringLength(20, MinimumLength = 20)]
         [Column("Zip_Postal_Code", TypeName = "char")]
-        public char[] ZipPostalCode { get; set; }
+        public String PostalCode { get; set; }
 
         [Required]
         [Column("Time_Stamp", TypeName = "timestamp")]

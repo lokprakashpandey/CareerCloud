@@ -23,7 +23,7 @@ namespace CareerCloud.Pocos
         [StringLength(10, MinimumLength = 10)]
         [ForeignKey("System_Language_Codes_LanguageID")]
         [Column(TypeName = "char")]
-        public char[] LanguageID { get; set; }
+        public String LanguageId { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -38,7 +38,7 @@ namespace CareerCloud.Pocos
         [Required]
         [Column("Time_Stamp", TypeName = "timestamp")]
 #pragma warning disable CS0649 // Field 'CompanyDescriptionPoco.TimeStamp' is never assigned to, and will always have its default value null
-        public Byte[] TimeStamp;
+        public Byte[] TimeStamp { get; set; }
 #pragma warning restore CS0649 // Field 'CompanyDescriptionPoco.TimeStamp' is never assigned to, and will always have its default value null
         
     }

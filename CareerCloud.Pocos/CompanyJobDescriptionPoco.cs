@@ -25,7 +25,7 @@ namespace CareerCloud.Pocos
 
         [Column("Job_Descriptions", TypeName = "nvarchar")]
         [StringLength(1000)]
-        public String JobDescription { get; set; }
+        public String JobDescriptions { get; set; }
 
         [Column("Time_Stamp", TypeName = "timestamp")]
         public Byte[] TimeStamp { get; set; }

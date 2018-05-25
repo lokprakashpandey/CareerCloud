@@ -26,13 +26,13 @@ namespace CareerCloud.Pocos
 
         [Required]
         [Column("Created_Date", TypeName = "datetime2")]
-        public DateTime CreatedDate { get; set; }
+        public DateTime Created { get; set; }
 
         [Column("Password_Update_Date", TypeName = "datetime2")]
-        public DateTime PasswordUpdateDate { get; set; }
+        public DateTime? PasswordUpdate { get; set; }
 
         [Column("Agreement_Accepted_Date", TypeName = "datetime2")]
-        public DateTime AgreementAcceptedDate { get; set; }
+        public DateTime? AgreementAccepted { get; set; }
 
         [Required]
         [Column("Is_Locked", TypeName = "bit")]
@@ -59,9 +59,9 @@ namespace CareerCloud.Pocos
         [Column("Force_Change_Password", TypeName = "bit")]
         public Boolean ForceChangePassword { get; set; }
 
-        [Column("Preferred_Language", TypeName = "char")]
+        [Column("Prefferred_Language", TypeName = "char")]
         [StringLength(10, MinimumLength = 10)]
-        public String PreferredLanguage { get; set; }
+        public String PrefferredLanguage { get; set; }
 
         [Required]
         [Column("Time_Stamp", TypeName = "timestamp")]

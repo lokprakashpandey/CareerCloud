@@ -31,7 +31,7 @@ namespace CareerCloud.Pocos
 
         [Required]
 #pragma warning disable CS0649 // Field 'CompanyJobSkillPoco.Importance' is never assigned to, and will always have its default value 0
-        public Int32 Importance;
+        public int Importance { get; set; }
 #pragma warning restore CS0649 // Field 'CompanyJobSkillPoco.Importance' is never assigned to, and will always have its default value 0
 
         [Required]

@@ -27,7 +27,7 @@ namespace CareerCloud.Pocos
         [Required]
         [StringLength(10, MinimumLength = 10)]
         [Column("Skill_Level", TypeName = "char")]
-        public Char[] SkillLevel { get; set; }
+        public String SkillLevel { get; set; }
 
         [Required]
         [Column("Start_Month")]

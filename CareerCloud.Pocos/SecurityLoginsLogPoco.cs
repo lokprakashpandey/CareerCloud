@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace CareerCloud.Pocos
 {
     [Table("Security_Logins_Log", Schema = "dbo")]
-    class SecurityLoginLogPoco : IPoco
+    class SecurityLoginsLogPoco : IPoco
     {
         [Key]
         public Guid Id { get; set; }
@@ -22,15 +22,15 @@ namespace CareerCloud.Pocos
         [Required]
         [Column("Source_IP", TypeName = "char")]
         [StringLength(15, MinimumLength = 15)]
-        public char[] SourceIP { get; set; }
+        public String SourceIP { get; set; }
 
         [Required]
         [Column("Logon_Date", TypeName = "datetime")]
         public DateTime LogonDate { get; set; }
 
         [Required]
-        [Column("Is_Successful", TypeName = "bit")]
-        public Boolean IsSuccessful { get; set; }
+        [Column("Is_Succesful", TypeName = "bit")]
+        public Boolean IsSuccesful { get; set; }
 
 
     }

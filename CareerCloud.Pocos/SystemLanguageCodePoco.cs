@@ -14,7 +14,7 @@ namespace CareerCloud.Pocos
         [Key]
         [Column(TypeName = "char")]
         [StringLength(10, MinimumLength = 10)]
-        public char[] LanguageID { get; set; }
+        public String LanguageID { get; set; }
 
         [Required]
         [Column(TypeName = "nvarchar")]

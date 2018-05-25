@@ -29,13 +29,13 @@ namespace CareerCloud.Pocos
         public String CertificateDiploma { get; set; }
 
         [Column("Start_Date", TypeName = "date")]
-        public DateTime StartDate { get; set; }
+        public DateTime? StartDate { get; set; }
 
         [Column("Completion_Date", TypeName = "date")]
-        public DateTime CompletionDate { get; set; }
+        public DateTime? CompletionDate { get; set; }
         
         [Column("Completion_Percent", TypeName = "tinyint")]
-        public Byte CompletionPercent { get; set; }
+        public Byte? CompletionPercent { get; set; }
 
         [Required]
         [Column("Time_Stamp", TypeName = "timestamp")]
