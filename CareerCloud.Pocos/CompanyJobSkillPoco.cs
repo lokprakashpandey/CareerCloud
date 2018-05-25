@@ -30,7 +30,9 @@ namespace CareerCloud.Pocos
         public String SkillLevel { get; set; }
 
         [Required]
+#pragma warning disable CS0649 // Field 'CompanyJobSkillPoco.Importance' is never assigned to, and will always have its default value 0
         public Int32 Importance;
+#pragma warning restore CS0649 // Field 'CompanyJobSkillPoco.Importance' is never assigned to, and will always have its default value 0
 
         [Required]
         [Column("Time_Stamp", TypeName = "timestamp")]
