@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace CareerCloud.Pocos
 {
     [Table("System_Country_Codes", Schema = "dbo")]
-    class SystemCountryCodePoco
+    public class SystemCountryCodePoco
     {
         [Key]
         [Column(TypeName = "char")]
