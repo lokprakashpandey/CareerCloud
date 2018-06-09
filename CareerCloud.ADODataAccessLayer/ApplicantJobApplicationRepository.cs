@@ -8,7 +8,7 @@ using CareerCloud.Pocos;
 
 namespace CareerCloud.ADODataAccessLayer
 {
-    public class ApplicantJobApplicationRepository : IDataRepository<ApplicantJobApplicationPoco>
+    class ApplicantJobApplicationRepository : IDataRepository<ApplicantJobApplicationPoco>
     {
         public void Add(params ApplicantJobApplicationPoco[] items)
         {

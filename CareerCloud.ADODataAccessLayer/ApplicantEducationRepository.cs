@@ -11,11 +11,11 @@ using CareerCloud.Pocos;
 
 namespace CareerCloud.ADODataAccessLayer
 {
-   public class ApplicantEducationRepository : IDataRepository<ApplicantEducationPoco>
+   class ApplicantEducationRepository : BaseADO, IDataRepository<ApplicantEducationPoco>
     {
         public void Add(params ApplicantEducationPoco[] items)
         {
-            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString);
+            SqlConnection conn = new SqlConnection(_connString);
 
             SqlCommand cmd = new SqlCommand();
 

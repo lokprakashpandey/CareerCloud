@@ -9,7 +9,7 @@ using CareerCloud.Pocos;
 
 namespace CareerCloud.ADODataAccessLayer
 {
-    public class ApplicantWorkHistoryRepository : IDataRepository<ApplicantWorkHistoryPoco>
+    class ApplicantWorkHistoryRepository : IDataRepository<ApplicantWorkHistoryPoco>
     {
         public void Add(params ApplicantWorkHistoryPoco[] items)
         {
