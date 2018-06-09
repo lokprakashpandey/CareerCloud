@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -9,11 +11,39 @@ using CareerCloud.Pocos;
 
 namespace CareerCloud.ADODataAccessLayer
 {
-    class ApplicantEducationRepository : IDataRepository<ApplicantEducationPoco>
+   public class ApplicantEducationRepository : IDataRepository<ApplicantEducationPoco>
     {
         public void Add(params ApplicantEducationPoco[] items)
         {
-            throw new NotImplementedException();
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString);
+
+            SqlCommand cmd = new SqlCommand();
+
+            cmd.Connection = conn;
+            int rowsEffected = 0;
+            foreach (ApplicantEducationPoco poco in items)
+            {
+                cmd.CommandText = @"INSERT INTO APPLICANT_EDUCATIONS 
+                     (Id,Applicant,Major,Certificate_Diploma,Start_Date,
+                      Completion_Date,Completion_Percent)
+                     VALUES
+                     (@Id,@Applicant,@Major,@Certificate_Diploma,@Start_Date,
+                      @Completion_Date,@Completion_Percent)";
+
+                cmd.Parameters.AddWithValue("@Id", poco.Id);
+                cmd.Parameters.AddWithValue("@Applicant", poco.Applicant);
+                cmd.Parameters.AddWithValue("@Major", poco.Major);
+                cmd.Parameters.AddWithValue("@Certificate_Diploma", poco.CertificateDiploma);
+                cmd.Parameters.AddWithValue("@Start_Date", poco.StartDate);
+                cmd.Parameters.AddWithValue("@Completion_Date", poco.CompletionDate);
+                cmd.Parameters.AddWithValue("@Completion_Percent", poco.CompletionPercent);
+
+                conn.Open();
+                rowsEffected += cmd.ExecuteNonQuery();
+                conn.Close();
+
+            }
+
         }
 
         public void CallStoredProc(string name, params Tuple<string, string>[] parameters)
