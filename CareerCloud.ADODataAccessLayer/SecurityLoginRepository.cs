@@ -83,8 +83,8 @@ namespace CareerCloud.ADODataAccessLayer
                     poco.Login = (string)reader[1];
                     poco.Password = reader.GetString(2);
                     poco.Created = (DateTime)reader[3];
-                    poco.PasswordUpdate = (DateTime?)reader[4];
-                    poco.AgreementAccepted = (DateTime?)reader[5];
+                    poco.PasswordUpdate = reader.IsDBNull(4) ? (DateTime?)null : reader.GetDateTime(4);
+                    poco.AgreementAccepted = reader.IsDBNull(5) ? (DateTime?)null : reader.GetDateTime(5);
                     poco.IsLocked = (bool)reader[6];
                     poco.IsInactive = (bool)reader[7];
                     poco.EmailAddress = reader.GetString(8);
