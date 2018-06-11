@@ -38,7 +38,7 @@ namespace CareerCloud.Pocos
 
         [StringLength(20, MinimumLength = 20)]
         [Column("Zip_Postal_Code", TypeName = "char")]
-        public String PostalCode { get; set; }
+        public string PostalCode { get; set; }
 
         [Required]
         [Column("Time_Stamp", TypeName = "timestamp")]
