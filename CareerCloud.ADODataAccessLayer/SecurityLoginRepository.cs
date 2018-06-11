@@ -69,7 +69,7 @@ namespace CareerCloud.ADODataAccessLayer
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = _connection;
-                cmd.CommandText = "select * from Company_Profiles";
+                cmd.CommandText = "select * from Security_Logins";
 
                 _connection.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -88,8 +88,8 @@ namespace CareerCloud.ADODataAccessLayer
                     poco.IsLocked = (bool)reader[6];
                     poco.IsInactive = (bool)reader[7];
                     poco.EmailAddress = reader.GetString(8);
-                    poco.PhoneNumber = (string)reader[9];
-                    poco.FullName = (string)reader[10];
+                    poco.PhoneNumber = (reader[9]==DBNull.Value) ?null:(string)reader[9];
+                    poco.FullName = (reader[10]==DBNull.Value) ?null:(string)reader[10];
                     poco.ForceChangePassword = (bool)reader[11];
                     poco.PrefferredLanguage = (reader[12] == DBNull.Value) ? null : (string)reader[12];
                     poco.TimeStamp = (byte[])reader[13];
