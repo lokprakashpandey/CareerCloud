@@ -8,7 +8,7 @@ using CareerCloud.Pocos;
 
 namespace CareerCloud.ADODataAccessLayer
 {
-    class SystemLanguageCodeRepository : IDataRepository<SystemLanguageCodePoco>
+    public class SystemLanguageCodeRepository : IDataRepository<SystemLanguageCodePoco>
     {
         public void Add(params SystemLanguageCodePoco[] items)
         {
