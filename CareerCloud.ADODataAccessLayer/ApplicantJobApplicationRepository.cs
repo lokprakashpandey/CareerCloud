@@ -33,7 +33,7 @@ namespace CareerCloud.ADODataAccessLayer
 
                     _connection.Open();
                     rowsEffected += cmd.ExecuteNonQuery();
-                    _connection.Close();
+                    _connection.Close();        
 
                 }
             }
