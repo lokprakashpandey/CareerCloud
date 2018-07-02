@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CareerCloud.Pocos
+namespace CareerCloud.BusinessLogicLayer
 {
-public interface IPoco
+    public class SystemLanguageCodeLogic
     {
-        Guid Id { get; set; }
-
     }
 }
