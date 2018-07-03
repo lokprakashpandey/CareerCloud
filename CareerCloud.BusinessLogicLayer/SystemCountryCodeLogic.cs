@@ -18,7 +18,28 @@ namespace CareerCloud.BusinessLogicLayer
 
         protected virtual void Verify(SystemCountryCodePoco[] pocos)
         {
-            return;
+            List<ValidationException> exceptions = new List<ValidationException>();
+
+            foreach (SystemCountryCodePoco poco in pocos)
+            {
+                if (string.IsNullOrEmpty(poco.Code))
+                {
+                    exceptions.Add(new ValidationException(900,
+                        $"Cannot be empty - {poco.Code}"));
+                }
+
+                if (string.IsNullOrEmpty(poco.Name))
+                {
+                    exceptions.Add(new ValidationException(901,
+                        $"Cannot be empty - {poco.Code}"));
+                }
+
+            }
+
+            if (exceptions.Count > 0)
+            {
+                throw new AggregateException(exceptions);
+            }
         }
 
         public virtual SystemCountryCodePoco Get(string code)
@@ -33,12 +54,13 @@ namespace CareerCloud.BusinessLogicLayer
 
         public virtual void Add(SystemCountryCodePoco[] pocos)
         {
-
+            Verify(pocos);
             _repository.Add(pocos);
         }
 
         public virtual void Update(SystemCountryCodePoco[] pocos)
         {
+            Verify(pocos);
             _repository.Update(pocos);
         }
 
