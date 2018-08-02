@@ -16,6 +16,13 @@ namespace CareerCloud.EntityFrameworkDataAccess
 
         }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<SystemCountryCodePoco>().HasKey(n => n.Code);
+            modelBuilder.Entity<SystemLanguageCodePoco>().HasKey(n => n.LanguageID);
+            base.OnModelCreating(modelBuilder);
+        }
+
         public DbSet<ApplicantEducationPoco> ApplicantEducations { get; set; }
 
         public DbSet<ApplicantJobApplicationPoco> ApplicantJobApplications { get; set; }
