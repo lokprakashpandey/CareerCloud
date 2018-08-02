@@ -15,12 +15,10 @@ namespace CareerCloud.Pocos
         public Guid Id { get; set; }
 
         [Required]
-        [Index(IsUnique = true)]
         public Guid Company { get; set; }
 
         [Required]
         [StringLength(10, MinimumLength = 10)]
-        [ForeignKey("System_Language_Codes_LanguageID")]
         [Column(TypeName = "char")]
         public String LanguageId { get; set; }
 

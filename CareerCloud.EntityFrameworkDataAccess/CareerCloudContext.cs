@@ -11,7 +11,7 @@ namespace CareerCloud.EntityFrameworkDataAccess
     class CareerCloudContext: DbContext
     {
         public CareerCloudContext():
-            base(@"Data Source=LAPTOP-6JLD6U9U\HUMBERBRIDGING;Integrated Security=True;")
+            base(@"Data Source=LAPTOP-6JLD6U9U\HUMBERBRIDGING;Initial Catalog=JOB_PORTAL_DB;Integrated Security=True;")
         {
 
         }
@@ -20,6 +20,37 @@ namespace CareerCloud.EntityFrameworkDataAccess
         {
             modelBuilder.Entity<SystemCountryCodePoco>().HasKey(n => n.Code);
             modelBuilder.Entity<SystemLanguageCodePoco>().HasKey(n => n.LanguageID);
+
+            modelBuilder.Entity<ApplicantEducationPoco>()
+                .Property(n => n.TimeStamp).IsRowVersion();
+            modelBuilder.Entity<ApplicantJobApplicationPoco>()
+                .Property(n => n.TimeStamp).IsRowVersion();
+            modelBuilder.Entity<ApplicantProfilePoco>()
+                .Property(n => n.TimeStamp).IsRowVersion();
+            modelBuilder.Entity<ApplicantSkillPoco>()
+                .Property(n => n.TimeStamp).IsRowVersion();
+            modelBuilder.Entity<ApplicantWorkHistoryPoco>()
+                .Property(n => n.TimeStamp).IsRowVersion();
+            modelBuilder.Entity<CompanyDescriptionPoco>()
+                .Property(n => n.TimeStamp).IsRowVersion();
+            modelBuilder.Entity<CompanyJobEducationPoco>()
+                .Property(n => n.TimeStamp).IsRowVersion();
+            modelBuilder.Entity<CompanyJobSkillPoco>()
+                .Property(n => n.TimeStamp).IsRowVersion();
+            modelBuilder.Entity<CompanyJobPoco>()
+                .Property(n => n.TimeStamp).IsRowVersion();
+            modelBuilder.Entity<CompanyJobDescriptionPoco>()
+                .Property(n => n.TimeStamp).IsRowVersion();
+            modelBuilder.Entity<CompanyLocationPoco>()
+                .Property(n => n.TimeStamp).IsRowVersion();
+            modelBuilder.Entity<CompanyProfilePoco>()
+                .Property(n => n.TimeStamp).IsRowVersion();
+            modelBuilder.Entity<SecurityLoginPoco>()
+                .Property(n => n.TimeStamp).IsRowVersion();
+            modelBuilder.Entity<SecurityLoginsRolePoco>()
+                .Property(n => n.TimeStamp).IsRowVersion();
+            
+            
             base.OnModelCreating(modelBuilder);
         }
 
