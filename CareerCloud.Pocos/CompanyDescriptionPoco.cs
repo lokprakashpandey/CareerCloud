@@ -16,7 +16,6 @@ namespace CareerCloud.Pocos
 
         [Required]
         [Index(IsUnique = true)]
-        [ForeignKey("Company_Profiles_Id")]
         public Guid Company { get; set; }
 
         [Required]
@@ -40,6 +39,8 @@ namespace CareerCloud.Pocos
 #pragma warning disable CS0649 // Field 'CompanyDescriptionPoco.TimeStamp' is never assigned to, and will always have its default value null
         public Byte[] TimeStamp { get; set; }
 #pragma warning restore CS0649 // Field 'CompanyDescriptionPoco.TimeStamp' is never assigned to, and will always have its default value null
+        public virtual CompanyProfilePoco CompanyProfiles { get; set; }
         
+        public virtual SystemLanguageCodePoco SystemLanguageCodes { get; set; }
     }
 }

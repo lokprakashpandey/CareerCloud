@@ -16,7 +16,6 @@ namespace CareerCloud.Pocos
 
         [Required]
         [Index(IsUnique = true)]
-        [ForeignKey("Applicant_Profiles_Id")]
         public Guid Applicant { get; set; }
 
         [Required]
@@ -48,5 +47,8 @@ namespace CareerCloud.Pocos
         [Required]
         [Column("Time_Stamp", TypeName = "timestamp")]
         public Byte[] TimeStamp { get; set; }
+
+        public virtual ApplicantProfilePoco ApplicantProfiles { get; set; }
+
     }
 }

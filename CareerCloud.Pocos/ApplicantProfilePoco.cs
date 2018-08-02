@@ -16,7 +16,6 @@ namespace CareerCloud.Pocos
 
         [Required]
         [Index(IsUnique = true)]
-        [ForeignKey("Security_Logins_Id")]
         public Guid Login { get; set; }
 
         [Column("Current_Salary")]
@@ -33,7 +32,6 @@ namespace CareerCloud.Pocos
 
         [Column("Country_Code", TypeName = "char")]
         [StringLength(10, MinimumLength = 10)]
-        [ForeignKey("System_Country_Codes_Code")]
         public String Country { get; set; }
 
         [Column("State_Province_Code", TypeName = "char")]
@@ -56,5 +54,18 @@ namespace CareerCloud.Pocos
         [Column("Time_Stamp", TypeName = "timestamp")]
         public Byte[] TimeStamp { get; set; }
 
+        public virtual ICollection<ApplicantJobApplicationPoco> ApplicantJobApplications { get; set; }
+
+        public virtual ICollection<ApplicantEducationPoco> ApplicantEducations { get; set; }
+
+        public virtual SecurityLoginPoco SecurityLogins { get; set; }
+
+        public virtual SystemCountryCodePoco SystemCountryCodes { get; set; }
+
+        public virtual ICollection<ApplicantResumePoco> ApplicantResumes { get; set; }
+        
+        public virtual ICollection<ApplicantSkillPoco> ApplicantSkills { get; set; }
+
+        public virtual ICollection<ApplicantWorkHistoryPoco> ApplicantWorkHistories { get; set; }
     }
 }

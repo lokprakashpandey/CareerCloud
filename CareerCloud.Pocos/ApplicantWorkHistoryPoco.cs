@@ -16,7 +16,6 @@ namespace CareerCloud.Pocos
 
         [Required]
         [Index(IsUnique = true)]
-        [ForeignKey("Applicant_Profiles_Id")]
         public Guid Applicant { get; set; }
 
         [Required]
@@ -26,7 +25,6 @@ namespace CareerCloud.Pocos
 
         [Required]
         [StringLength(10, MinimumLength = 10)]
-        [ForeignKey("System_Country_Codes_Code")]
         [Column("Country_Code", TypeName = "char")]
 #pragma warning disable CS0649 // Field 'ApplicantWorkHistoryPoco.CountryCode' is never assigned to, and will always have its default value null
         public String CountryCode { get; set; }
@@ -82,6 +80,11 @@ namespace CareerCloud.Pocos
 #pragma warning disable CS0649 // Field 'ApplicantWorkHistoryPoco.TimeStamp' is never assigned to, and will always have its default value null
         public Byte[] TimeStamp { get; set; }
 #pragma warning restore CS0649 // Field 'ApplicantWorkHistoryPoco.TimeStamp' is never assigned to, and will always have its default value null
+
+        public virtual ApplicantProfilePoco ApplicantProfiles { get; set; }
+
+        public virtual SystemCountryCodePoco SystemCountryCodes { get; set; }
+
 
     }
 }
