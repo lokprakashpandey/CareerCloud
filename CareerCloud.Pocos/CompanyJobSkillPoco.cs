@@ -15,7 +15,6 @@ namespace CareerCloud.Pocos
         public Guid Id { get; set; }
 
         [Required]
-        [Index(IsUnique = true)]
         public Guid Job { get; set; }
 
         [Required]
@@ -33,11 +32,11 @@ namespace CareerCloud.Pocos
         public int Importance { get; set; }
 #pragma warning restore CS0649 // Field 'CompanyJobSkillPoco.Importance' is never assigned to, and will always have its default value 0
 
-        [Required]
+
         [Column("Time_Stamp", TypeName = "timestamp")]
         public Byte[] TimeStamp { get; set; }
         
-
+        [ForeignKey("Job")]
         public virtual CompanyJobPoco CompanyJobs { get; set; }
     }
 }

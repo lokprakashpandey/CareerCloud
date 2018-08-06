@@ -15,7 +15,6 @@ namespace CareerCloud.Pocos
         public Guid Id { get; set; }
 
         [Required]
-        [Index(IsUnique = true)]
         public Guid Login { get; set; }
 
         [Required]
@@ -30,7 +29,8 @@ namespace CareerCloud.Pocos
         [Required]
         [Column("Is_Succesful", TypeName = "bit")]
         public Boolean IsSuccesful { get; set; }
-
+        
+        [ForeignKey("Login")]
         public virtual SecurityLoginPoco SecurityLogins { get; set; }
 
     }

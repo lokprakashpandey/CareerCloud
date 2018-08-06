@@ -15,7 +15,6 @@ namespace CareerCloud.Pocos
         public Guid Id { get; set; }
 
         [Required]
-        [Index(IsUnique = true)]
         public Guid Applicant { get; set; }
 
         [Required]
@@ -75,14 +74,15 @@ namespace CareerCloud.Pocos
         public Int32 EndYear { get; set; }
 #pragma warning restore CS0649 // Field 'ApplicantWorkHistoryPoco.EndYear' is never assigned to, and will always have its default value 0
 
-        [Required]
         [Column("Time_Stamp", TypeName = "timestamp")]
 #pragma warning disable CS0649 // Field 'ApplicantWorkHistoryPoco.TimeStamp' is never assigned to, and will always have its default value null
         public Byte[] TimeStamp { get; set; }
 #pragma warning restore CS0649 // Field 'ApplicantWorkHistoryPoco.TimeStamp' is never assigned to, and will always have its default value null
 
+        [ForeignKey("Applicant")]
         public virtual ApplicantProfilePoco ApplicantProfiles { get; set; }
 
+        [ForeignKey("CountryCode")]
         public virtual SystemCountryCodePoco SystemCountryCodes { get; set; }
 
 

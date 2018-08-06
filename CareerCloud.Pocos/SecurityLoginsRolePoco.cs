@@ -15,18 +15,18 @@ namespace CareerCloud.Pocos
         public Guid Id { get; set; }
 
         [Required]
-        [Index(IsUnique = true)]
         public Guid Login { get; set; }
 
         [Required]
-        [Index(IsUnique = true)]
         public Guid Role { get; set; }
 
         [Column("Time_Stamp", TypeName = "timestamp")]
         public Byte[] TimeStamp { get; set; }
 
+        [ForeignKey("Login")]
         public virtual SecurityLoginPoco SecurityLogins { get; set; }
 
+        [ForeignKey("Role")]
         public virtual SecurityRolePoco SecurityRoles { get; set; }
 
     }

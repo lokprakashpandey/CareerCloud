@@ -15,7 +15,6 @@ namespace CareerCloud.Pocos
         public Guid Id { get; set; }
 
         [Required]
-        [Index(IsUnique = true)]
         public Guid Company { get; set; }
 
         [Required]
@@ -23,8 +22,7 @@ namespace CareerCloud.Pocos
         [Column("Country_Code", TypeName = "char")]
         public String CountryCode { get; set; }
 
-        [StringLength(10, MinimumLength = 10)]
-        [Column("State_Province_Code", TypeName = "char")]
+        [Column("State_Province_Code")]
         public String Province { get; set; }
 
         [StringLength(100)]
@@ -35,14 +33,14 @@ namespace CareerCloud.Pocos
         [Column("City_Town", TypeName = "nvarchar")]
         public String City { get; set; }
 
-        [StringLength(20, MinimumLength = 20)]
-        [Column("Zip_Postal_Code", TypeName = "char")]
+        [Column("Zip_Postal_Code")]
         public string PostalCode { get; set; }
 
-        [Required]
+        
         [Column("Time_Stamp", TypeName = "timestamp")]
         public Byte[] TimeStamp { get; set; }
 
+        [ForeignKey("Company")]
         public virtual CompanyProfilePoco CompanyProfiles { get; set; }
 
     }

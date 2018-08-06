@@ -15,7 +15,6 @@ namespace CareerCloud.Pocos
         public Guid Id { get; set; }
 
         [Required]
-        [Index(IsUnique = true)]
         public Guid Applicant { get; set; }
 
         [Required]
@@ -25,6 +24,7 @@ namespace CareerCloud.Pocos
         [Column("Last_Updated", TypeName = "datetime2")]
         public DateTime? LastUpdated { get; set; }
 
+        [ForeignKey("Applicant")]
         public virtual ApplicantProfilePoco ApplicantProfiles { get; set; }
 
     }

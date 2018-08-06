@@ -15,7 +15,6 @@ namespace CareerCloud.Pocos
         public Guid Id { get; set; }
 
         [Required]
-        [Index(IsUnique = true)]
         public Guid Job { get; set; }
 
         [Required]
@@ -26,10 +25,11 @@ namespace CareerCloud.Pocos
         [Required]
         public Int16 Importance { get; set; }
 
-        [Required]
+
         [Column("Time_Stamp", TypeName = "timestamp")]
         public Byte[] TimeStamp { get; set; }
-
+        
+        [ForeignKey("Job")]
         public virtual CompanyJobPoco CompanyJobs { get; set; }
 
     }

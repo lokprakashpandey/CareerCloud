@@ -15,7 +15,6 @@ namespace CareerCloud.Pocos
         public Guid Id { get; set; }
 
         [Required]
-        [Index(IsUnique = true)]
         public Guid Login { get; set; }
 
         [Column("Current_Salary")]
@@ -50,7 +49,6 @@ namespace CareerCloud.Pocos
         [StringLength(20, MinimumLength = 20)]
         public String PostalCode { get; set; }
 
-        [Required]
         [Column("Time_Stamp", TypeName = "timestamp")]
         public Byte[] TimeStamp { get; set; }
 
@@ -58,8 +56,10 @@ namespace CareerCloud.Pocos
 
         public virtual ICollection<ApplicantEducationPoco> ApplicantEducations { get; set; }
 
+        [ForeignKey("Login")]
         public virtual SecurityLoginPoco SecurityLogins { get; set; }
 
+        [ForeignKey("Country")]
         public virtual SystemCountryCodePoco SystemCountryCodes { get; set; }
 
         public virtual ICollection<ApplicantResumePoco> ApplicantResumes { get; set; }

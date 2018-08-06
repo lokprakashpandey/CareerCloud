@@ -15,7 +15,6 @@ namespace CareerCloud.Pocos
         public Guid Id { get; set; }
 
         [Required]//since foreign keys may be null
-        [Index(IsUnique = true)]
         public Guid Applicant { get; set; }
 
         [Required]
@@ -36,10 +35,10 @@ namespace CareerCloud.Pocos
         [Column("Completion_Percent", TypeName = "tinyint")]
         public Byte? CompletionPercent { get; set; }
 
-        [Required]
         [Column("Time_Stamp", TypeName = "timestamp")]
         public Byte[] TimeStamp { get; set; }
 
+        [ForeignKey("Applicant")]
         public virtual ApplicantProfilePoco ApplicantProfiles { get; set; }
     }
 }

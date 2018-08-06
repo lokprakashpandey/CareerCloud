@@ -16,7 +16,6 @@ namespace CareerCloud.Pocos
         public Guid Id { get; set; }
 
         [Required]
-        [Index(IsUnique = true)]
         public Guid Company { get; set; }
 
         [Required]
@@ -40,6 +39,7 @@ namespace CareerCloud.Pocos
 
         public virtual ICollection<CompanyJobSkillPoco> CompanyJobSkills { get; set; }
 
+        [ForeignKey("Company")]
         public virtual CompanyProfilePoco CompanyProfiles { get; set; }
 
         public virtual ICollection<CompanyJobDescriptionPoco> CompanyJobDescriptions { get; set; }

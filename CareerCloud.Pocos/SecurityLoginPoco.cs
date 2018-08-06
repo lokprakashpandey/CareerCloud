@@ -63,7 +63,7 @@ namespace CareerCloud.Pocos
         [StringLength(10, MinimumLength = 10)]
         public String PrefferredLanguage { get; set; }
 
-        [Required]
+        
         [Column("Time_Stamp", TypeName = "timestamp")]
         public Byte[] TimeStamp { get; set; }
 
