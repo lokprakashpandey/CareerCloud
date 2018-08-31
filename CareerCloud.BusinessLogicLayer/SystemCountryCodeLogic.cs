@@ -20,20 +20,23 @@ namespace CareerCloud.BusinessLogicLayer
         {
             List<ValidationException> exceptions = new List<ValidationException>();
 
-            foreach (SystemCountryCodePoco poco in pocos)
+            if (pocos != null)
             {
-                if (string.IsNullOrEmpty(poco.Code))
+                foreach (SystemCountryCodePoco poco in pocos)
                 {
-                    exceptions.Add(new ValidationException(900,
-                        $"Cannot be empty - {poco.Code}"));
-                }
+                    if (string.IsNullOrEmpty(poco.Code))
+                    {
+                        exceptions.Add(new ValidationException(900,
+                            $"Cannot be empty - {poco.Code}"));
+                    }
 
-                if (string.IsNullOrEmpty(poco.Name))
-                {
-                    exceptions.Add(new ValidationException(901,
-                        $"Cannot be empty - {poco.Code}"));
-                }
+                    if (string.IsNullOrEmpty(poco.Name))
+                    {
+                        exceptions.Add(new ValidationException(901,
+                            $"Cannot be empty - {poco.Code}"));
+                    }
 
+                }
             }
 
             if (exceptions.Count > 0)
@@ -44,7 +47,8 @@ namespace CareerCloud.BusinessLogicLayer
 
         public virtual SystemCountryCodePoco Get(string code)
         {
-            return _repository.GetSingle(c => c.Code == code);
+            SystemCountryCodePoco poco = _repository.GetSingle(c => c.Code == code);
+            return poco;
         }
 
         public virtual List<SystemCountryCodePoco> GetAll()

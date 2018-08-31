@@ -15,18 +15,21 @@ namespace CareerCloud.EntityFrameworkDataAccess
     {
         private CareerCloudContext _context;
 
-        public EFGenericRepository()
+        public EFGenericRepository(bool createProxy=true)
         {
-            _context = new CareerCloudContext();
+            _context = new CareerCloudContext(createProxy);
         }
 
 
         public void Add(params T[] items)
         {
-            foreach(T item in items)
+            if (items != null)
             {
-                _context.Entry(item).State =
-                    EntityState.Added;
+                foreach (T item in items)
+                {
+                    _context.Entry(item).State =
+                        EntityState.Added;
+                }
             }
 
             Debug.WriteLine("OK before savechanges");

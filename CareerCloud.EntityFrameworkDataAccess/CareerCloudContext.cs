@@ -11,10 +11,12 @@ namespace CareerCloud.EntityFrameworkDataAccess
 {
     public class CareerCloudContext: DbContext
     {
-        public CareerCloudContext():
+        public CareerCloudContext(bool createProxy=true):
             base(@"Data Source=LAPTOP-6JLD6U9U\HUMBERBRIDGING;Initial Catalog=JOB_PORTAL_DB;Integrated Security=True;")
         {
-
+            Configuration.ProxyCreationEnabled = createProxy;
+            Database.Log =
+                s => System.Diagnostics.Debug.WriteLine(s);
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
