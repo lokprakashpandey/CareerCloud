@@ -31,58 +31,62 @@ namespace CareerCloud.BusinessLogicLayer
         {
             List<ValidationException> exceptions = new List<ValidationException>();
             
-            foreach (CompanyProfilePoco poco in pocos)
+            if(pocos != null)
             {
-                if(!string.IsNullOrEmpty(poco.CompanyWebsite))
+                foreach (CompanyProfilePoco poco in pocos)
                 {
-                    string substr1 = poco.CompanyWebsite.Substring(poco.CompanyWebsite.Length - 3);
-                    string substr2 = poco.CompanyWebsite.Substring(poco.CompanyWebsite.Length - 4);
-                    if (!(substr1.CompareTo(".ca") == 0 || substr2.CompareTo(".biz") == 0
-                        || substr2.CompareTo(".biz") == 0))
+                    if (!string.IsNullOrEmpty(poco.CompanyWebsite))
                     {
-                        exceptions.Add(new ValidationException(600,
-                            $"Valid websites must end with the following extensions – .ca, .com, .biz - {poco.Id}"));
+                        string substr1 = poco.CompanyWebsite.Substring(poco.CompanyWebsite.Length - 3);
+                        string substr2 = poco.CompanyWebsite.Substring(poco.CompanyWebsite.Length - 4);
+                        if (!(substr1.CompareTo(".ca") == 0 || substr2.CompareTo(".biz") == 0
+                            || substr2.CompareTo(".com") == 0))
+                        {
+                            exceptions.Add(new ValidationException(600,
+                                $"Valid websites must end with the following extensions – .ca, .com, .biz - {poco.Id}"));
+                        }
                     }
-                }
 
-                if (string.IsNullOrEmpty(poco.ContactPhone))
-                {
-                    exceptions.Add(new ValidationException(601, 
-                        $"Must correspond to a valid phone number (e.g. 416-555-1234) - {poco.Id}"));
-                }
-                else
-                {
-                    string[] phoneComponents = poco.ContactPhone.Split('-');
-                    if (phoneComponents.Length < 3)
+                    if (string.IsNullOrEmpty(poco.ContactPhone))
                     {
                         exceptions.Add(new ValidationException(601,
-                        $"Must correspond to a valid phone number (e.g. 416-555-1234) - {poco.Id}"));
+                            $"Must correspond to a valid phone number (e.g. 416-555-1234) - {poco.Id}"));
                     }
                     else
                     {
-                        if (phoneComponents[0].Length < 3)
+                        string[] phoneComponents = poco.ContactPhone.Split('-');
+                        if (phoneComponents.Length < 3)
                         {
                             exceptions.Add(new ValidationException(601,
-                        $"Must correspond to a valid phone number (e.g. 416-555-1234) - {poco.Id}"));
+                            $"Must correspond to a valid phone number (e.g. 416-555-1234) - {poco.Id}"));
                         }
-                        else if (phoneComponents[1].Length < 3)
+                        else
                         {
-                            exceptions.Add(new ValidationException(601,
-                        $"Must correspond to a valid phone number (e.g. 416-555-1234) - {poco.Id}"));
-                        }
-                        else if (phoneComponents[2].Length < 4)
-                        {
-                            exceptions.Add(new ValidationException(601,
-                        $"Must correspond to a valid phone number (e.g. 416-555-1234) - {poco.Id}"));
+                            if (phoneComponents[0].Length < 3)
+                            {
+                                exceptions.Add(new ValidationException(601,
+                            $"Must correspond to a valid phone number (e.g. 416-555-1234) - {poco.Id}"));
+                            }
+                            else if (phoneComponents[1].Length < 3)
+                            {
+                                exceptions.Add(new ValidationException(601,
+                            $"Must correspond to a valid phone number (e.g. 416-555-1234) - {poco.Id}"));
+                            }
+                            else if (phoneComponents[2].Length < 4)
+                            {
+                                exceptions.Add(new ValidationException(601,
+                            $"Must correspond to a valid phone number (e.g. 416-555-1234) - {poco.Id}"));
+                            }
                         }
                     }
                 }
-            }
 
-            if (exceptions.Count > 0)
-            {
-                throw new AggregateException(exceptions);
+                if (exceptions.Count > 0)
+                {
+                    throw new AggregateException(exceptions);
+                } 
             }
+            
         }
     }
 }

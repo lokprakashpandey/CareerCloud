@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CareerCloud.DataAccessLayer
 {
-    public interface IDataRepository<T>
+    public interface IDataRepository<T> where T:class
     {
         IList<T> GetAll(params Expression<Func<T, object>>[] navigationProperties);
         IList<T> GetList(Expression<Func<T, bool>> where, params Expression<Func<T, object>>[] navigationProperties);

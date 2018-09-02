@@ -37,18 +37,19 @@ namespace CareerCloud.BusinessLogicLayer
                     }
 
                 }
-            }
 
-            if (exceptions.Count > 0)
-            {
-                throw new AggregateException(exceptions);
+
+                if (exceptions.Count > 0)
+                {
+                    throw new AggregateException(exceptions);
+                }
             }
         }
 
         public virtual SystemCountryCodePoco Get(string code)
         {
-            SystemCountryCodePoco poco = _repository.GetSingle(c => c.Code == code);
-            return poco;
+            return _repository.GetSingle(c => c.Code == code);
+            
         }
 
         public virtual List<SystemCountryCodePoco> GetAll()
