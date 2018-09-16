@@ -109,7 +109,7 @@
     <Compile Include="Controllers\ApplicantWorkHistoryController.cs" />
     <Compile Include="Controllers\CompanyDescriptionController.cs" />
     <Compile Include="Controllers\CompanyJobController.cs" />
-    <Compile Include="Controllers\CompanyJobDescriptionController.cs" />
+    <Compile Include="Controllers\CompanyJobsDescriptionController.cs" />
     <Compile Include="Controllers\CompanyJobEducationController.cs" />
     <Compile Include="Controllers\CompanyJobSkillController.cs" />
     <Compile Include="Controllers\CompanyLocationController.cs" />

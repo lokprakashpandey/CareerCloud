@@ -27,7 +27,7 @@ namespace CareerCloud.WebAPI.Controllers
         [HttpGet]
         [Route("profile/{companyProfileId}")]
         [ResponseType(typeof(CompanyProfilePoco))]
-        public IHttpActionResult GetCompanyJob(Guid companyProfileId)
+        public IHttpActionResult GetCompanyProfile(Guid companyProfileId)
         {
             CompanyProfilePoco poco = _logic.Get(companyProfileId);
 
