@@ -102,6 +102,24 @@
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ApplicantEducationController.cs" />
+    <Compile Include="Controllers\ApplicantJobApplicationController.cs" />
+    <Compile Include="Controllers\ApplicantProfileController.cs" />
+    <Compile Include="Controllers\ApplicantResumeController.cs" />
+    <Compile Include="Controllers\ApplicantSkillController.cs" />
+    <Compile Include="Controllers\ApplicantWorkHistoryController.cs" />
+    <Compile Include="Controllers\CompanyDescriptionController.cs" />
+    <Compile Include="Controllers\CompanyJobController.cs" />
+    <Compile Include="Controllers\CompanyJobDescriptionController.cs" />
+    <Compile Include="Controllers\CompanyJobEducationController.cs" />
+    <Compile Include="Controllers\CompanyJobSkillController.cs" />
+    <Compile Include="Controllers\CompanyLocationController.cs" />
+    <Compile Include="Controllers\CompanyProfileController.cs" />
+    <Compile Include="Controllers\SecurityLoginController.cs" />
+    <Compile Include="Controllers\SecurityLoginsLogController.cs" />
+    <Compile Include="Controllers\SecurityLoginsRoleController.cs" />
+    <Compile Include="Controllers\SecurityRoleController.cs" />
+    <Compile Include="Controllers\SystemCountryCodeController.cs" />
+    <Compile Include="Controllers\SystemLanguageCodeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
