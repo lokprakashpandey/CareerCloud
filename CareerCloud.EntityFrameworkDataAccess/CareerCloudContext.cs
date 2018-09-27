@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace CareerCloud.EntityFrameworkDataAccess
     public class CareerCloudContext: DbContext
     {
         public CareerCloudContext(bool createProxy=true):
+            //base(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString)
             base(@"Data Source=LAPTOP-6JLD6U9U\HUMBERBRIDGING;Initial Catalog=JOB_PORTAL_DB;Integrated Security=True;")
         {
             Configuration.ProxyCreationEnabled = createProxy;

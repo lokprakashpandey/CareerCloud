@@ -15,7 +15,8 @@ namespace CareerCloud.ADODataAccessLayer
         public BaseADO()
         {
             //_connection = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString);
-            _connString = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+            //_connString = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+            _connString = @"Data Source=LAPTOP-6JLD6U9U\HUMBERBRIDGING;Initial Catalog=JOB_PORTAL_DB;Integrated Security=True";
         }
     }
 }

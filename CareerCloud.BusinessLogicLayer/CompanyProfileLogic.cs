@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CareerCloud.ADODataAccessLayer;
 using CareerCloud.DataAccessLayer;
 using CareerCloud.Pocos;
 
@@ -10,6 +11,7 @@ namespace CareerCloud.BusinessLogicLayer
 {
     public class CompanyProfileLogic:BaseLogic<CompanyProfilePoco>
     {
+        //CompanyProfileRepository _repo = new CompanyProfileRepository();
         public CompanyProfileLogic(IDataRepository<CompanyProfilePoco> repository):base(repository)
         {
 
@@ -24,6 +26,7 @@ namespace CareerCloud.BusinessLogicLayer
         public override void Update(CompanyProfilePoco[] pocos)
         {
             Verify(pocos);
+            //_repo.Update(pocos);
             base.Update(pocos);
         }
 
